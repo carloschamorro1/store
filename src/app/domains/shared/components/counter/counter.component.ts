@@ -38,13 +38,13 @@ export class CounterComponent {
     console.log('-', repeat(10));
     console.log('duration =>', this.duration);
     console.log('message =>', this.message);
-    if (typeof window !== "undefined") {
+    /*if (typeof window !== "undefined") {
       this.counterRef = Number(window.setInterval(() => {
         console.log('run interval')
         this.counter.update(statePrev => statePrev + 1);
       },1000));
-    }
-  
+    }*/
+    //Esto produce el error document is not defined 
   }
   
 
