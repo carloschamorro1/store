@@ -16,22 +16,26 @@
         <ul class="flex space-x-6">
           <li>
             <a
-              href="#"
-              class="block underline hover:underline"
+              routerLink="/"
+              routerLinkActive="underline"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="block hover:underline"
               aria-current="page"
               >Home</a
             >
           </li>
           <li>
             <a
-              href="#"
+              routerLink="/about"
+              routerLinkActive="underline"
               class="block hover:underline"
               >About</a
             >
           </li>
           <li>
             <a
-              href="#"
+              routerLink="/services"
+              routerLinkActive="underline"
               class="block hover:underline"
               >Services</a
             >
@@ -85,13 +89,15 @@
   </div>
 
   <div class="pt-4 flex flex-col">
-    <div class="flex justify-between items-center space-y-2" *ngFor="let product of cart()">
+    @for (product of cart(); track product) {
+<div class="flex justify-between items-center space-y-2">
       <div class="flex space-x-2 items-center">
         <img class="w-16 h-16 mb-2" [src]="product.images[0]" [alt]="product.title">
         <h3 class="text-base">{{ product.title }}</h3>
       </div>
       <p class="text-blue-600">{{ product.price | currency: 'L': 'symbol':'1.0'}}</p>
     </div>
+}
     <div>
       <p>Total: {{ total() | currency: 'L': 'symbol':'1.0'}}</p>
     </div>
